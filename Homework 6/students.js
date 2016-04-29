@@ -1,0 +1,22 @@
+var students = [
+{
+	"name":"Jeff",
+	"classNum":"CS108"
+},
+{
+	"name":"Jeff",
+	"classNum":"CS220"
+},
+{
+	"name":"Jimmy",
+	"classNum":"CS240"
+},
+{
+	"name":"Jimmy",
+	"classNum":"CS220"
+},
+{
+	"name":"Jerry",
+	"classNum":"CS249"
+}
+];

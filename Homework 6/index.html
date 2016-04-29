@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework 5</title>
+    <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="students.js"></script>
+    <script src="script.js"></script>
+	<link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+  	<!--Panel for displaying tables with classes inside-->
+    <section id="classesPanel" class="col-md-6 panel panel-default">
+    	<div class="table-responsive">
+    		<table id="cs108Table" class="classTable table tabel-bordered table-striped">
+    			<tbody>
+    				<tr><td>CS108: Computing Fundamentals</td></tr>
+    			</tbody>
+    		</table>
+    		<table id="cs220Table" class="classTable table tabel-bordered table-striped">
+    			<tbody>
+    				<tr><td>CS220: Computer Organization</td></tr>
+    			</tbody>
+    		</table>
+    		<table id="cs240Table" class="classTable table tabel-bordered table-striped">
+    			<tbody>
+    				<tr><td>CS240: Data Structures and Algorithms</td></tr>
+    			</tbody>
+    		</table>
+    		<table id="cs249Table" class="classTable table tabel-bordered table-striped">
+    			<tbody>
+    				<tr><td>CS249: Object Oriented Programming</td></tr>
+    			</tbody>
+    		</table>
+    	</div>
+    </section>
+    <!--Panel for adding new students to a class from a dropdown selection-->
+	<section id="studentInputPanel" class="panel panel-default col-md-6">
+	    <h4>Add a Student to a Computer Science Class</h4>
+	    	<input type="text" id="newStudentName" class="form-control" placeholder="Student Name">
+	    	<select id="classDD" class="form-control">
+	  			<option value="CS108">CS108</option>
+	  			<option value="CS220">CS220</option>
+	  			<option value="CS240">CS240</option>
+	  			<option value="CS249">CS249</option>
+			</select>
+	    <button id="addButton" onclick="addStudent()" class="btn btn-primary">Add</button>
+	    <i id="spinner" class="fa fa-spin fa-2x" style="display:none"></i>
+	</section>
+	<!-- Bootstrap Modal adapted for clicking on students -->
+	<div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="studentModalLabel">New message</h4>
+	      </div>
+	      <div class="modal-body">
+	        <span id="modalClasses"></span>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  </body>
+</html>

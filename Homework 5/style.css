@@ -1,0 +1,34 @@
+body{
+	margin: 3em 3em 3em 3em;
+	font-family: "roboto";
+}
+/* Formatting for Add Panel */
+#studentInputPanel{
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+#addButton{
+	float:right;
+}
+/* End Formatting for Add Panel */
+
+/* Formatting for Class Display Panel */
+/* Remove the padding in class panel section */
+#classPanel{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Adds a margin to the top and bottom of each table,
+so they have some breathing room. */
+.classTable{
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+/* Centers the text in the class tables. */
+.classTable tbody tr td {
+	text-align: center;
+}
+/* End formatting for Class Display Panel */

@@ -1,0 +1,17 @@
+body{
+	margin: 4em 3em 3em 4em;
+	font-family: "Roboto";
+}
+.page-header{
+	text-align: center;
+}
+
+.panel{
+	text-align: center;
+}
+
+.cs350-links ul
+{
+	list-style-type: none;
+	text-align: center;
+}

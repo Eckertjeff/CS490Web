@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homework 7</title>
+    <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="students.js"></script>
+    <script src="script.js"></script>
+	<link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+  	<!--Panel for displaying tables with classes inside-->
+    <div id="classesPanel" class="col-md-6 col-sm-12 col-xs-12 panel panel-default">
+    	<section class="panel-heading classHeading">
+    		<h4>CS108: Computing Fundamentals</h4>
+    	</section>
+    	<section  id="cs108Body" class="panel-body classPanel">
+    	</section>
+    	<section class="panel-heading classHeading">
+    		<h4>CS220: Computer Organization</h4>
+    	</section>
+    	<section  id="cs220Body" class="panel-body classPanel">
+    	</section>
+    	<section class="panel-heading classHeading">
+    		<h4>CS240: Data Structures and Algorithms</h4>
+    	</section>
+    	<section  id="cs240Body" class="panel-body classPanel">
+    	</section>
+    	<section class="panel-heading classHeading">
+    		<h4>CS249: Object Oriented Programming</h4>
+    	</section>
+    	<section  id="cs249Body" class="panel-body classPanel">
+    	</section>
+    	<section class="panel-heading classHeading">
+    		<h4>CS490: Web Design and Programming</h4>
+    	</section>
+    	<section  id="cs490Body" class="panel-body classPanel">
+    	</section>
+    </div>
+    <!--Panel for adding new students to a class from a dropdown selection-->
+	<section id="studentInputPanel" class="panel panel-default col-md-6 col-sm-12 col-xs-12">
+	    <h4>Add a Student to a Computer Science Class</h4>
+	    	<input type="text" id="newStudentName" class="form-control" placeholder="Student Name">
+	    	<select id="classDD" class="form-control">
+	  			<option value="CS108">CS108</option>
+	  			<option value="CS220">CS220</option>
+	  			<option value="CS240">CS240</option>
+	  			<option value="CS249">CS249</option>
+	  			<option value="CS490">CS490</option>
+			</select>
+	    <button id="addButton" onclick="addStudent()" class="btn btn-primary">Add</button>
+	    <i id="spinner" class="fa fa-spin fa-2x" style="display:none"></i>
+	</section>
+	<!-- Panel to display API related events -->
+	<section id="apiPanel" class="panel panel-default col-md-6 col-sm-12 col-xs-12">
+		<button id="studentsAPIButton" class="btn btn-primary" onclick="getAllStudentsAPI()">Students</button>
+    	<button id="coursesAPIButton" class="btn btn-primary" onclick="getAllCoursesAPI()">Courses</button>
+    	<section id="apiDisplayHeader" class="panel panel-header col-md-12 col-sm-12 col-xs-12 apiDisplayPanel">
+    	<h4></h4>
+    	</section>
+    	<section id="apiDisplayBody" class="panel panel-body col-md-12 col-sm-12 col-xs-12 apiDisplayPanel">
+    	</section>
+	</section>
+	<!-- Bootstrap Modal adapted for clicking on students -->
+	<div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="studentModalLabel">New message</h4>
+	      </div>
+	      <div class="modal-body clearfix">
+	      	<span id="studentID" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="studentLevel" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="studentOwner" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="studentPhoto" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="studentActive" class="col-md-12 col-sm-12 col-xs-12"></span>
+	        <span id="modalClasses" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!--Modal for courses -->
+	<div class="modal fade" id="courseModal" tabindex="-1" role="dialog" aria-labelledby="courseModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="courseModalLabel">New message</h4>
+	      </div>
+	      <div class="modal-body clearfix">
+	      	<span id="courseName" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="courseNum" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="courseMaxStudents" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="courseOwner" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      	<span id="courseActive" class="col-md-12 col-sm-12 col-xs-12"></span>
+	        <span id="courseStudents" class="col-md-12 col-sm-12 col-xs-12"></span>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+  </body>
+</html>

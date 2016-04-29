@@ -1,0 +1,65 @@
+body{
+	margin: 3em 3em 3em 3em;
+	font-family: "roboto";
+}
+
+.clearfix:after {
+		clear: both;
+		content: "";
+		display: table;
+}
+/* Formatting for Add Panel */
+#studentInputPanel{
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+#addButton{
+	float: right;
+}
+
+#spinner{
+	float: right;
+}
+
+.invalidInput{
+	border: 2px solid red;
+}
+
+/* End Formatting for Add Panel */
+
+/* Formatting for Class Display Panel */
+.classHeading{
+	text-align: center;
+}
+
+/* Adds a margin to the top and bottom of each table,
+so they have some breathing room. */
+.classPanel{
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+.classPanel button{
+	background-color: transparent;
+	border: none;
+}
+
+/* Centers the text in the class tables. */
+.classPanel {
+	text-align: center;
+}
+/* End formatting for Class Display Panel */
+
+/* Formatting for the API Panel */
+#apiPanel button{
+	margin-top: .5em;
+}
+
+.apiDisplayPanel button{
+	margin-top: .25em;
+	margin-bottom: .25em;
+	background-color: transparent;
+	border: none;
+}
+/* End Formatting for API Panel */
